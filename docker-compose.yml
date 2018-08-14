@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  flask:
+    build: 
+      context: .
+      dockerfile: "Flask/Dockerfile"
+    ports:
+      - "2000:80"
+    expose:
+      - "2000"
+  node:
+    build:
+      context: .
+      dockerfile: "Node/Dockerfile"
+    command: "npm start"
+    ports: 
+      - "3000:80"
+    expose:
+      - "3000"
+    volumes:
+      - "./Node/:/var/www/app"
