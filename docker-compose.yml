@@ -5,9 +5,18 @@ services:
       context: .
       dockerfile: "Flask/Dockerfile"
     ports:
-      - "2000:80"
+      - "2000:5000"
     expose:
       - "2000"
+    entrypoint:
+      - flask
+      - run
+      - --host=0.0.0.0
+    environment:
+      FLASK_DEBUG: 1
+      FLASK_APP: ./main.py
+    volumes:
+      - "./Flask/:/app"
   node:
     build:
       context: .
