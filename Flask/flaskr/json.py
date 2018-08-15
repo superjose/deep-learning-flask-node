@@ -8,4 +8,4 @@ bp = Blueprint('json', __name__, url_prefix = '/api')
 
 @bp.route('/', methods = ('GET', 'POST'))
 def index():
-    return jsonify('hello 😁😁😁😁😁😁😁')
+    return jsonify('Hello :D')
