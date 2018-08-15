@@ -1,8 +1,8 @@
 import os
 from flask import Flask
 import db.db as db
-
-# import ./flaskr/db
+import db.auth as auth
+import flaskr.json as json
 
 def create_app(test_config = None):
     # Create and Configure the app
@@ -32,7 +32,8 @@ def create_app(test_config = None):
 
     # Connects the databse into the application
     db.init_app(app)
-    
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(json.bp)
     return app
 # END
 
